@@ -1,0 +1,14 @@
+.main-container{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-2);
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+}

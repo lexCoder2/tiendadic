@@ -1,0 +1,19 @@
+
+header {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin: 15px;
+  border-radius: 15px;
+  padding: 8px 20px;
+  flex-grow: 0;
+  flex-basis: 40px;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+
+.search-bar {
+  flex-grow: 1;
+  flex-basis: 300px;
+}
