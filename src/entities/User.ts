@@ -1,10 +1,10 @@
-import { Permitions } from './permitions'
+import { Roles } from './roles'
 
 export default class User {
   name: string
-  type: Permitions
+  type: Roles
 
-  constructor (name: string = '', type: Permitions = Permitions.VISITOR) {
+  constructor (name: string = '', type: Roles = Roles.VISITOR) {
     this.name = name
     this.type = type 
     

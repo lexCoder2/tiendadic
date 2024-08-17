@@ -1,8 +1,7 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
-import { authType } from '../types/auth.type';
+import { useState } from 'react';
+import { AuthType } from '../types/auth.type';
 
-const authContext = createContext({})
-export function useAuth(): authType {
+export function useAuth(): AuthType {
   const [authed, setAuthed] = useState(false);
 
   return {
@@ -21,13 +20,4 @@ export function useAuth(): authType {
     },
   };
 }
-type provider = {children: ReactNode}
-export function AuthProvider({ children }: provider) {
-  const auth = useAuth();
 
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
-}
-
-export default function AuthConsumer() {
-  return useContext(authContext);
-}

@@ -1,0 +1,81 @@
+.sell {
+  display: flex;
+  flex-direction: row;
+}
+.quick-access {
+  flex-grow: 1;
+  margin: 0 25px;
+}
+
+.sell-list {
+  width: 450px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.btn-cancel {
+  width: 130px;
+}
+.btn-sell {
+  width: 250px;
+  font-weight: normal;
+  background-color: #05a165;
+}
+.sell-btn-container {
+  display: flex;
+  margin: 10px 25px;
+  justify-content: space-between;
+  & span {
+    padding-left: 10px;
+    font-size: 20px;
+    margin-left: 10px;
+    border-left: 1px solid #3bb969;
+  }
+}
+.no-padding {
+  padding: 6px !important;
+}
+.sell-list-items {
+  padding: 0;
+  margin: 0;
+}
+
+.sell-item {
+  border-radius: 2px;
+  margin: 0 0 4px 0;
+  padding: 8px 15px;
+  display: flex;
+  background-color: #f2f2f2;
+  position: relative;
+  & > * {
+    padding: 3px 5px;
+  }
+  .description {
+    flex-grow: 1;
+    font-weight: bold;
+  }
+  .close {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    right: -10px;
+    top: -10px;
+    padding: 0;
+    padding-bottom: 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+    background-color: rgb(243, 109, 109);
+    color: wheat;
+  }
+
+  &:hover {
+    background-color: #fde0e0;
+    .close {
+      display: flex;
+    }
+  }
+}

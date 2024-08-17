@@ -1,29 +1,28 @@
-import { action, observable } from 'mobx';
-import { Section } from '../types/section.type';
+import { SectionType } from '../types/section.type';
 
 export class SectionStore {
-  @observable sections: Section[] = [
+  sections: SectionType[] = [
     {
       key: 1,
       name: 'Productos',
       image: '/public/basket.png',
-      link: ''
+      link: 'products'
     },
     {
       key: 2,
       name: 'Venta',
-      image: '/public/cajas.png',
-      link: ''
+      image: '/public/shop.png',
+      link: 'sell'
     },
     {
       key: 3,
       name: 'Cajas',
       image: '/public/cajas.png',
-      link: ''
+      link: 'registers'
     },
   ];
 
-  @action
+  
   getSections() {
     return this.sections
   }

@@ -1,4 +1,4 @@
-export type Section = {
+export type SectionType = {
   key: number,
   name: string,
   image: string,
