@@ -3,3 +3,150 @@
   justify-content: end;
   gap: 15px;
 }
+.box-list {
+  max-height: 70%;
+}
+.header-list {
+  display: flex;
+  gap: 5px;
+}
+
+.table-list {
+  flex-grow: 0;
+  max-height: 92%;
+  padding: 0;
+  overflow: scroll;
+}
+.row-list {
+  height: 30px;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  border-bottom: 1px solid #eee;
+  & > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.table-container {
+  display: block;
+  width: 100%;
+}
+.box-input {
+  display: flex;
+  flex-direction: row;
+}
+.w1 {
+  flex-grow: 1;
+}
+.w2 {
+  flex-grow: 2;
+}
+.w6 {
+  flex-grow: 6;
+}
+.w5 {
+  flex-grow: 5;
+}
+.w3 {
+  flex-grow: 3;
+}
+.list-required {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+  padding: 0;
+  > div {
+    flex-grow: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+  }
+}
+.header-drop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 80px;
+}
+h5 {
+  margin-bottom: 5px;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+.box__file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.box__label {
+  padding: 15px;
+  cursor: pointer;
+  &:hover strong {
+    color: #f44;
+  }
+}
+.box.has-advanced-upload {
+  height: 100px;
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.loaded {
+    background-color: rgb(196, 253, 231);
+  }
+}
+.box.has-advanced-upload.is-dragover {
+  background-color: rgb(221, 225, 250);
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+.draggables {
+  display: flex;
+  flex-shrink: 1;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: width 1s ease;
+  border-radius: 0;
+}
+.box-shadow button.btn-secondary.dragable-item {
+  border-width: 1px;
+  border-color: #f3cbd2;
+  padding: 11px 5px 11px 22px;
+  border-radius: 4px;
+
+  background-color: #fefbfd;
+  font-weight: normal;
+  color: rgb(201, 51, 71);
+  position: relative;
+  transition: box-shadow 0.2s linear;
+  ::before {
+    content: '⠿';
+    position: absolute;
+    left: 3px;
+    color: #ebaeae;
+    top: 9px;
+    font-size: 1.1em;
+  }
+}
+
+.reset-dnd {
+  background-color: #fff;
+  color: $primary;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  padding: 5px 10px;
+}

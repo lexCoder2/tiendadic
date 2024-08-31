@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { StoreContext } from '../../store.context'
 import ContainerBox from '../../components/containerBox.component'
-import { Table } from '../../components/productTable.component'
+import TableProducts from './tableProducts.component'
+import { DndContext } from '@dnd-kit/core'
 
 const ProductsView = () => {
   const { productStore } = useContext(StoreContext)
@@ -13,16 +14,19 @@ const ProductsView = () => {
     productStore.getProducts()
   }, [productStore])
   return (
-    <>
-      <Box>
-        <Table rows={productStore} />
+    <DndContext>
+      <Box className="box-list">
+        <TableProducts rows={productStore} />
       </Box>
       <ContainerBox className="product-btn-container">
         <Link to="add">
           <button>Agregar Producto</button>
         </Link>
+        <Link to="load">
+          <button className="secondary">Cargar excel</button>
+        </Link>
       </ContainerBox>
-    </>
+    </DndContext>
   )
 }
 const ProductList = observer(ProductsView)

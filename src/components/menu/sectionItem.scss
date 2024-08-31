@@ -1,16 +1,16 @@
 .section-item {
-  box-shadow: 0 1px 10px 0 rgba($gray-bg, 0.2),
+  box-shadow: 1px 1px 3px 0 rgba($gray-bg, 0.3),
     inset 3px 5px 3px -3px rgba(white, 0.2);
   display: flex;
   flex-grow: 0;
   background-color: darken($background-1, 2%);
   border-radius: $box-radius - 3px;
   justify-content: center;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.1s linear;
 }
 
 .section-item:hover {
-  box-shadow: 0 0 2px rgba($gray-bg, 0.4);
+  box-shadow: 0 0 1px rgba($gray-bg, 1), inset 2px 2px 3px -4px rgba(white, 0.3);
 }
 
 .link {
@@ -34,7 +34,7 @@
 }
 
 .section-item.active {
-  background-color: darken($color: $background-1, $amount: 6%);
-  box-shadow: 0 0 2px rgba(223, 225, 225, 0.6),
-    inset -2px -2px 5px rgba(119, 119, 119, 0.1);
+  background-color: darken($color: $background-1, $amount: 8%);
+  box-shadow: inset -2px -2px 1px rgba(231, 237, 255, 0.4),
+    inset 2px 2px 3px darken($color: $background-1, $amount: 25%);
 }

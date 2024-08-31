@@ -1,4 +1,4 @@
-.main-container{
+.main-container {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -8,11 +8,10 @@
 main {
   display: flex;
   flex-grow: 1;
-  flex-shrink: 0;
+  flex-shrink: 1;
   flex-direction: column;
 }
 
-
-.MuiTableRow-root{
+.MuiTableRow-root {
   height: 10px;
 }

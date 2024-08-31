@@ -2,13 +2,31 @@ import SellButtons from './sellButtons.component'
 import SellList from './sellList.component'
 
 import './sell.scss'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { StoreContext } from '../../store.context'
+import { observer } from 'mobx-react'
 
-export function Sell() {
-  const {
-    sellStore: { sellClients },
-  } = useContext(StoreContext)
+function SellView() {
+  const { sellStore, productStore, searchStore } = useContext(StoreContext)
+
+  useEffect(() => {
+    if (searchStore.searchQuery.length > 1)
+      productStore
+        .getProductsSearch(searchStore.searchQuery)
+        .then((products) => {
+          searchStore.setSearchList(
+            products.map((prod) => ({
+              id: prod.id ?? 0,
+              text: prod.description,
+            }))
+          )
+        })
+  }, [searchStore.searchQuery])
+
+  useEffect(() => {
+    if (searchStore.itemId != 0) sellStore.addProduct(searchStore.itemId)
+    searchStore.setItemId(0)
+  }, [searchStore.itemId])
 
   return (
     <main className="sell">
@@ -21,9 +39,13 @@ export function Sell() {
         </section>
       </section>
       <div className="sell-list">
-        <SellList list={sellClients[0]} />
+        <SellList list={sellStore.sellClients[0]} />
         <SellButtons />
       </div>
     </main>
   )
 }
+
+const Sell = observer(SellView)
+
+export default Sell

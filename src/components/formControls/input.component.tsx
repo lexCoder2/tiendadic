@@ -10,13 +10,14 @@ interface InputProps {
   clear?: boolean
   error?: boolean
   autoFocus?: boolean
+  className?: string
 }
 export function InputView(
-  { value, input, autoFocus, onChange }: InputProps,
+  { value, input, autoFocus, onChange, className }: InputProps,
   ref: Ref<HTMLInputElement>
 ) {
   return (
-    <fieldset>
+    <fieldset className={className}>
       <label>{input.label}</label>
       <input
         ref={ref}

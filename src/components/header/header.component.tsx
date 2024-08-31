@@ -1,4 +1,4 @@
-import SearchBar from '../searchBar.component'
+import SearchBar from './searchBar.component'
 import Settings from './settings.components'
 import './header.scss'
 

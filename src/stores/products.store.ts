@@ -1,8 +1,8 @@
 import { action, computed, makeAutoObservable } from 'mobx'
 import { ProductType } from '../types/product.type'
 import User from '../entities/User'
-import { apiGet } from '../services/useFetch.service'
 import { ProductRowType } from '../types/productRow.type'
+import { getAllProducts, getProductBySearch } from '../services/product.service'
 
 export class ProductsStore {
   products: ProductType[] = []
@@ -17,7 +17,7 @@ export class ProductsStore {
   @action
   getProducts() {
     this.loading = true
-    return apiGet('/products').then(
+    return getAllProducts().then(
       action((products) => {
         this.products = products
         this.loading = false
@@ -25,9 +25,19 @@ export class ProductsStore {
     )
   }
 
+  getProductsSearch(searchQuery: string): Promise<ProductType[]> {
+    this.loading = true
+    return getProductBySearch(searchQuery).then(
+      action((products) => {
+        console.log('productsstore '), products
+        this.loading = false
+        return products
+      })
+    )
+  }
+
   @computed
   get productListRows(): ProductRowType[] {
-    console.log(this.loading)
     return this.products.map(
       ({ id, category, code, cost, description, price, sellPrice, stock }) => ({
         id,

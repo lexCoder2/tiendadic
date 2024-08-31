@@ -1,28 +1,36 @@
 import { InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material'
 import { useStore } from '../../useStore'
+import { observer } from 'mobx-react'
+import { useState } from 'react'
 
-export function SelectInput() {
+function SelectInputView({ onSelected, className }: any) {
   const { categoriesStore } = useStore()
-  const handleChange = (event: SelectChangeEvent) => {
-    console.log(event)
+  const [selected, setSelected] = useState(categoriesStore.categories[0].name)
+  const handleChange = (event: any) => {
+    setSelected(event.target.value)
+    onSelected(selected)
   }
 
   return (
-    <fieldset>
+    <fieldset className={className}>
       <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
       <Select
         labelId="demo-simple-select-label"
-        value={`${categoriesStore.categories[0].id}`}
+        value={selected}
         label="Categoria"
         className="select-input"
         onChange={handleChange}
       >
-        {categoriesStore.categories.map((categorie) => (
-          <MenuItem key={categorie.id} value={categorie.id}>
-            {categorie.name}
+        {categoriesStore.categories.map((category) => (
+          <MenuItem key={category.id} value={category.name}>
+            {category.name}
           </MenuItem>
         ))}
       </Select>
     </fieldset>
   )
 }
+
+const SelectInput = observer(SelectInputView)
+
+export default SelectInput
